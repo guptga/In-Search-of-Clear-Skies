@@ -6,8 +6,27 @@
     const aqi = await response.json();
 }*/
 
-function getData(latitude, longitude) {
-    let url = "https://github.com/guptga/Project-3-In-Search-of-Clear-Skies/blob/main/sample_AQI_call.json";
+const cityElement = document.querySelector(".city span");
+const indexElement = document.querySelector(".indexAir span");
+
+const air_key = '';
+const air = {};
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      let latitude = position.coords.latitude;
+      let longitude = position.coords.longitude;
+
+      getData(latitude, longitude);
+    });
+  } else {
+    console.log("Geolocation in not supported by this browser");
+  }
+}
+
+function getData() {
+    let url = "https://github.com/guptga/Project-3-In-Search-of-Clear-Skies/blob/2475f8307dce365a6215ecd02c1e828423392c71/sample_AQI_call.json";
     fetch(url)
     .then(function(response) {
         let data = response.json();
@@ -22,6 +41,10 @@ function getData(latitude, longitude) {
     })
 }
 
+function showData() {
+    cityElement.innerHTML = `${air.city}<span> </span>`;
+    indexElement.innerHTML = `${air.index}<span> </span>`;
+}
 
 /*
 
