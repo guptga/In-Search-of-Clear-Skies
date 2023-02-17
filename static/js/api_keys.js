@@ -1,0 +1,1 @@
+const aqi_key = '0272fe3841c5da357f0d0b32c37d1d95379ede2a';
