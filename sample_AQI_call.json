@@ -1,0 +1,210 @@
+{
+    "data": {
+        "aqi": 53,
+        "attributions": [
+            {
+                "logo": "Ontario-Ministry-of-the-Environment-and-Climate-Change.png",
+                "name": "Air Quality Ontario - the Ontario Ministry of the Environment and Climate Change",
+                "url": "http://www.airqualityontario.com/"
+            },
+            {
+                "name": "World Air Quality Index Project",
+                "url": "https://waqi.info/"
+            }
+        ],
+        "city": {
+            "geo": [
+                43.653226,
+                -79.3831843
+            ],
+            "location": "",
+            "name": "Toronto",
+            "url": "https://aqicn.org/city/toronto"
+        },
+        "debug": {
+            "sync": "2023-02-17T08:29:55+09:00"
+        },
+        "dominentpol": "pm25",
+        "forecast": {
+            "daily": {
+                "o3": [
+                    {
+                        "avg": 4,
+                        "day": "2023-02-14",
+                        "max": 10,
+                        "min": 1
+                    },
+                    {
+                        "avg": 14,
+                        "day": "2023-02-15",
+                        "max": 18,
+                        "min": 3
+                    },
+                    {
+                        "avg": 4,
+                        "day": "2023-02-16",
+                        "max": 12,
+                        "min": 1
+                    },
+                    {
+                        "avg": 12,
+                        "day": "2023-02-17",
+                        "max": 16,
+                        "min": 7
+                    },
+                    {
+                        "avg": 13,
+                        "day": "2023-02-18",
+                        "max": 16,
+                        "min": 10
+                    },
+                    {
+                        "avg": 11,
+                        "day": "2023-02-19",
+                        "max": 16,
+                        "min": 7
+                    },
+                    {
+                        "avg": 13,
+                        "day": "2023-02-20",
+                        "max": 16,
+                        "min": 11
+                    }
+                ],
+                "pm10": [
+                    {
+                        "avg": 24,
+                        "day": "2023-02-14",
+                        "max": 28,
+                        "min": 13
+                    },
+                    {
+                        "avg": 8,
+                        "day": "2023-02-15",
+                        "max": 20,
+                        "min": 5
+                    },
+                    {
+                        "avg": 13,
+                        "day": "2023-02-16",
+                        "max": 20,
+                        "min": 6
+                    },
+                    {
+                        "avg": 4,
+                        "day": "2023-02-17",
+                        "max": 5,
+                        "min": 2
+                    },
+                    {
+                        "avg": 9,
+                        "day": "2023-02-18",
+                        "max": 15,
+                        "min": 3
+                    },
+                    {
+                        "avg": 16,
+                        "day": "2023-02-19",
+                        "max": 20,
+                        "min": 12
+                    },
+                    {
+                        "avg": 12,
+                        "day": "2023-02-20",
+                        "max": 18,
+                        "min": 2
+                    }
+                ],
+                "pm25": [
+                    {
+                        "avg": 58,
+                        "day": "2023-02-14",
+                        "max": 69,
+                        "min": 45
+                    },
+                    {
+                        "avg": 23,
+                        "day": "2023-02-15",
+                        "max": 55,
+                        "min": 13
+                    },
+                    {
+                        "avg": 29,
+                        "day": "2023-02-16",
+                        "max": 47,
+                        "min": 15
+                    },
+                    {
+                        "avg": 9,
+                        "day": "2023-02-17",
+                        "max": 12,
+                        "min": 5
+                    },
+                    {
+                        "avg": 29,
+                        "day": "2023-02-18",
+                        "max": 50,
+                        "min": 6
+                    },
+                    {
+                        "avg": 53,
+                        "day": "2023-02-19",
+                        "max": 61,
+                        "min": 42
+                    },
+                    {
+                        "avg": 41,
+                        "day": "2023-02-20",
+                        "max": 58,
+                        "min": 4
+                    }
+                ],
+                "uvi": [
+                    {
+                        "avg": 1,
+                        "day": "2022-10-23",
+                        "max": 3,
+                        "min": 0
+                    }
+                ]
+            }
+        },
+        "iaqi": {
+            "co": {
+                "v": 2.7
+            },
+            "h": {
+                "v": 82.7
+            },
+            "no2": {
+                "v": 9.7
+            },
+            "o3": {
+                "v": 15.2
+            },
+            "p": {
+                "v": 1011.4
+            },
+            "pm25": {
+                "v": 53
+            },
+            "so2": {
+                "v": 0.3
+            },
+            "t": {
+                "v": -1.1
+            },
+            "w": {
+                "v": 3
+            }
+        },
+        "idx": 5914,
+        "time": {
+            "iso": "2023-02-16T18:00:00-05:00",
+            "s": "2023-02-16 18:00:00",
+            "tz": "-05:00",
+            "v": 1676570400
+        }
+    },
+    "status": "ok"
+}

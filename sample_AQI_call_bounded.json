@@ -1,0 +1,145 @@
+{
+    "data": [
+        {
+            "aqi": "21",
+            "lat": 44.044306,
+            "lon": -79.48325,
+            "station": {
+                "name": "Newmarket, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 18
+        },
+        {
+            "aqi": "23",
+            "lat": 43.945944,
+            "lon": -78.894917,
+            "station": {
+                "name": "Oshawa, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 21
+        },
+        {
+            "aqi": "21",
+            "lat": 43.747917,
+            "lon": -79.274056,
+            "station": {
+                "name": "Toronto East, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 35
+        },
+        {
+            "aqi": "21",
+            "lat": 44.150528,
+            "lon": -77.3955,
+            "station": {
+                "name": "Belleville, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 1
+        },
+        {
+            "aqi": "22",
+            "lat": 44.219722,
+            "lon": -76.521111,
+            "station": {
+                "name": "Kingston, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 13
+        },
+        {
+            "aqi": "50",
+            "lat": 43.662972,
+            "lon": -79.388111,
+            "station": {
+                "name": "Toronto Downtown, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 34
+        },
+        {
+            "aqi": "17",
+            "lat": 43.781611,
+            "lon": -79.417722,
+            "station": {
+                "name": "Toronto North, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 36
+        },
+        {
+            "aqi": "20",
+            "lat": 44.382361,
+            "lon": -79.702306,
+            "station": {
+                "name": "Barrie, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 0
+        },
+        {
+            "aqi": "21",
+            "lat": 44.314472,
+            "lon": -81.549722,
+            "station": {
+                "name": "Tiverton, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 33
+        },
+        {
+            "aqi": "23",
+            "lat": 45.224278,
+            "lon": -78.932944,
+            "station": {
+                "name": "Dorset, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 7
+        },
+        {
+            "aqi": "21",
+            "lat": 44.301917,
+            "lon": -78.346222,
+            "station": {
+                "name": "Peterborough, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 26
+        },
+        {
+            "aqi": "21",
+            "lat": 43.709444,
+            "lon": -79.5435,
+            "station": {
+                "name": "Toronto West, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 37
+        },
+        {
+            "aqi": "18",
+            "lat": 45.337861,
+            "lon": -80.038167,
+            "station": {
+                "name": "Parry Sound, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 24
+        },
+        {
+            "aqi": "16",
+            "lat": 43.69875,
+            "lon": -79.780917,
+            "station": {
+                "name": "Brampton, Ontario, Canada",
+                "time": "2023-02-17T09:00:00+09:00"
+            },
+            "uid": 2
+        }
+    ],
+    "status": "ok"
+}
