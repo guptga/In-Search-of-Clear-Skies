@@ -96,7 +96,7 @@ function option_change(newSample) {
 }
 
 init();
-*/
+
 //const url_map = `https://api.waqi.info/feed/geo:${latitude};${longitude}/?token=${token}`;
 
 let allMarkers = {};
@@ -325,3 +325,4 @@ function init() {
 }
  
 init();
+*/
