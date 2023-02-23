@@ -1,19 +1,43 @@
 var map = L.map( 'map', {
   center: [44.0, -79.0],
   minZoom: 2,
-  zoom: 7
+  zoom: 7,
 });
  
 L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
  subdomains: ['a','b','c']
 }).addTo( map );
- 
+
 var myURL = jQuery('script[src$="logic.js"]').attr( 'src' ).replace( 'logic.js', '' );
+
+// power plants
+var myIcon2 = L.icon({
+  iconUrl: myURL + 'images/powerplant.png',
+  iconRetinaUrl: myURL + 'images/powerplant.png',
+  iconSize: [25, 20],
+  iconAnchor: [9, 21],
+  popupAnchor: [0, -14]
+});
+
+var powerMarker = L.layerGroup();
  
+for ( var i = 0; i < power.length; ++i )
+{
+  var popup = power[i].name +
+      '<br/><b>Longitude:</b> ' + power[i].primary_fuel;
+  var p = L.marker( [power[i].latitude, power[i].longitude], {icon: myIcon2} )
+                  .bindPopup( popup );
+ 
+  powerMarker.addLayer( p );
+}
+ 
+map.addLayer( powerMarker);
+
+// Parks
 var myIcon = L.icon({
-  iconUrl: myURL + 'images/pin24.png',
-  iconRetinaUrl: myURL + 'images/pin48.png',
+  iconUrl: myURL + 'images/bench.png',
+  iconRetinaUrl: myURL + 'images/bench.png',
   iconSize: [29, 24],
   iconAnchor: [9, 21],
   popupAnchor: [0, -14]
@@ -35,4 +59,11 @@ for ( var i = 0; i < markers.length; ++i )
   markerClusters.addLayer( m );
 }
  
-map.addLayer( markerClusters );
+map.addLayer( markerClusters);
+
+var overlayMaps = {
+  Parks: markerClusters,
+  Power_Plants: powerMarker
+};
+
+L.control.layers(overlayMaps, null, {collapsed: false}).addTo(map);
