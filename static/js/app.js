@@ -26,7 +26,7 @@ function getLocation() {
 }
 
 function getData() {
-    let url = "https://github.com/guptga/Project-3-In-Search-of-Clear-Skies/blob/2475f8307dce365a6215ecd02c1e828423392c71/sample_AQI_call.json";
+    let url = "https://github.com/guptga/Project-3-In-Search-of-Clear-Skies/blob/main/sample_AQI_call.json";
     fetch(url)
     .then(function(response) {
         let data = response.json();
