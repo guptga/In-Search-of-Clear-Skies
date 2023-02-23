@@ -66,4 +66,5 @@ var overlayMaps = {
   Power_Plants: powerMarker
 };
 
+// Toggle control
 L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
