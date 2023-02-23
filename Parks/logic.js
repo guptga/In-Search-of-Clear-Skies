@@ -66,5 +66,5 @@ var overlayMaps = {
   Power_Plants: powerMarker
 };
 
-// Toggle control
+// Toggle control for parks and powerstations
 L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
