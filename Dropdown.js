@@ -2,7 +2,7 @@
 //const url1 = "Input.json"
 token = "7d4b07b555e7bb7b62be7b734a673dd4c7d257d8"
 const url2 = "https://api.waqi.info/feed/geo:"
-const url3= "AQ Ontario Station Data.csv"
+const url3= "https://github.com/guptga/Project-3-In-Search-of-Clear-Skies/blob/878be98d9750ba8fea0e1afba6d0bea1975d8d2f/AQ_StationData.csv"
 
 
 // Fetch the JSON data and console log it
