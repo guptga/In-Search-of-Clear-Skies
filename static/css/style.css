@@ -21,7 +21,6 @@ body,
 html {
   height: 100%;
   width: 1000px;
-  float: right;
 }
 
 .legend {
@@ -43,3 +42,9 @@ html {
   margin-right: 20px;
   opacity: 1;
 }
+
+.gauge {
+  left: 30px;
+  float: right;
+}
+

@@ -46,10 +46,9 @@ function demographic(id) {
     });
 }
 */
-// Load the GaugeJS library
-var Gauge = require('gaugeJS');
 
 // Get the container element
+var target = document.getElementById('gauge');
 var container = document.getElementById("gauge-container");
 
 // Set the gauge options
