@@ -24,8 +24,9 @@ var powerMarker = L.layerGroup();
  
 for ( var i = 0; i < power.length; ++i )
 {
-  var popup = power[i].name +
-      '<br/><b>Longitude:</b> ' + power[i].primary_fuel;
+  var popup = 
+      '<br/><b>Name:</b> ' + power[i].name +
+      '<br/><b>Power Source:</b> ' + power[i].primary_fuel;
   var p = L.marker( [power[i].latitude, power[i].longitude], {icon: myIcon2} )
                   .bindPopup( popup );
  
