@@ -5,6 +5,9 @@ coordinates = ['43.591706','-81.639478','45.747761','-76.306641'];
 
 const url_map = `https://api.waqi.info/map/bounds?token=${aqi_key}&latlng=${coordinates[0]},${coordinates[1]},${coordinates[2]},${coordinates[3]}`;
 
+var gaugeContainer = document.getElementById("gauge-container");
+var legendContainer = document.getElementById("legend");
+
 // function to add heat to map
 function heat(response){
     heatArray = [];
@@ -39,8 +42,40 @@ function heat(response){
     heatLayer = {"AQI Heatmap": heat};
  
     L.control.layers({},heatLayer).addTo(map);
-}
 
+    function markerColor(aqi) {
+        switch(true) {
+            case aqi > 300:
+                return "#7e0023";
+            case aqi > 200:
+                return "#8f3f97";
+            case aqi > 150:
+                return "#ff0000";
+            case aqi > 100:
+                return "#ff7e00";
+            case aqi > 50:
+                return "#ffff00";
+            default:
+                return "#00e400";
+        };
+    }
+    var legend = L.control({position: "bottomright"});
+    
+    legend.onAdd = function(map) {
+        let div = L.DomUtil.create("div", "info legend");
+        let limits = [0,50,100,150,200,300];
+        div.innerHTML = "<h3 style = 'text-align: center'> Levels of Health Concern </h3>"
+    
+        for (let i = 0; i < limits.length; i++) {
+            div.innerHTML += 
+            '<i style ="background:' + markerColor(limits[i] + 1) + '"></i> ' +
+            limits[i] + (limits[i + 1] ? '&ndash;' + limits[i + 1] + '<br>' : '+');
+        }
+        return div;
+    };
+    
+    legend.addTo(map);
+}
 
 var map = L.map("map", {
     center: [43.6532,-79.3832],
@@ -54,8 +89,6 @@ baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     minZoom: 2,
     maxZoom: 12 // 8 for large map?
 }).addTo(map);
-
-
 
 function addMarkers(data){
 
@@ -94,7 +127,6 @@ d3.json(url_map).then(function(data){
     addMarkers(data);
     
 });
-
 
 
 // Rough notes, versioning, etc 

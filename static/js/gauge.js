@@ -1,6 +1,5 @@
-const url_map = `https://api.waqi.info/map/bounds?token=${aqi_key}&latlng=${coordinates[0]},${coordinates[1]},${coordinates[2]},${coordinates[3]}`;
-
 // Demographic Info
+/*
 function demographic(id) {
     d3.json(url).then(function(data) {
         var MetaData = data.metadata;
@@ -46,3 +45,51 @@ function demographic(id) {
         Plotly.newPlot('gauge', gauge, layout);
     });
 }
+*/
+// Load the GaugeJS library
+var Gauge = require('gaugeJS');
+
+// Get the container element
+var container = document.getElementById("gauge-container");
+
+// Set the gauge options
+var options = {
+  angle: 0,
+  lineWidth: 0.2,
+  radiusScale: 1,
+  pointer: {
+    length: 0.5,
+    strokeWidth: 0.035,
+    color: '#000000'
+  },
+  limitMax: true,
+  limitMin: true,
+  strokeColor: '#E0E0E0',
+  generateGradient: true,
+  highDpiSupport: true
+};
+
+// Initialize the gauge
+var gauge = new Gauge(container).setOptions(options);
+
+// Set the gauge value based on the AQI
+gauge.maxValue = 500; // Maximum AQI value
+gauge.setMinValue(0); // Minimum AQI value
+gauge.set(100); // Set the current AQI value
+
+// Set the gauge colors based on the AQI level
+gauge.colorize = function(value) {
+  if (value <= 50) {
+    return '#00E400'; // Good AQI level
+  } else if (value <= 100) {
+    return '#FFFF00'; // Moderate AQI level
+  } else if (value <= 150) {
+    return '#FF7E00'; // Unhealthy for Sensitive Groups AQI level
+  } else if (value <= 200) {
+    return '#FF0000'; // Unhealthy AQI level
+  } else if (value <= 300) {
+    return '#8F3F97'; // Very Unhealthy AQI level
+  } else {
+    return '#7E0023'; // Hazardous AQI level
+  }
+};
