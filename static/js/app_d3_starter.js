@@ -1,7 +1,11 @@
 // Southern Ontario Coordinates
-coordinates = ['43.591706','-81.639478','45.747761','-76.306641'];
+// coordinates = ['43.591706','-81.639478','45.747761','-76.306641'];
 // North America Coordinates
 // coordinates = ['28.491626','-126.741920','67.931333','-64.976622'];
+// Updated Southern Ontario Coordinates 
+// coordinates = ['43.000002', '-80.939047','46.930924','-76.277734'];
+// Another attempt 
+coordinates = ['42.895460','-82.513621','46.595439','-76.031763'];
 
 const url_map = `https://api.waqi.info/map/bounds?token=${aqi_key}&latlng=${coordinates[0]},${coordinates[1]},${coordinates[2]},${coordinates[3]}`;
 
@@ -54,8 +58,41 @@ baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     minZoom: 2,
     maxZoom: 12 // 8 for large map?
 }).addTo(map);
+function aqiGradient(a){
+return a > 301 ? 'maroon': //#660066':
+  a > 201? 'purple' :
+  a > 151? 'red' :
+  a > 101? 'orange' :
+  a > 51 ? 'yellow':
+  a > 0 ? 'green' :
+  '#660033';
+// // Stack overflow version with palettes.js?
+//Get an array of unique categories
+//Reference: [1]
+// var uniqueCategories = [...new Set(points.map(function(point) {
+//     return point.category
+// }))]
 
+//Create palette ('mpn65' has up to 65 different colours)
+// var palette = palette('mpn65',uniqueCategories.length);
+// var palette = palette('mpn65',4);
 
+//Construct empty JavaScript Map (keys mapped to values)
+//Reference: [2]
+// var paletteMap = new Map()
+
+//Map all categories to a RGB colour string
+// for(let i = 0; i < palette.length; i++) {
+//     paletteMap.set(a[i],palette[i])
+// }
+
+//Add circleMarkers to Leaflet map
+// for (let point of points) {
+//   L.circleMarker(point.coordinates,
+//                  {color: '#' + paletteMap.get(point.category)} //retrieve mapped colour
+//                 ).addTo(map)
+// }
+}
 
 function addMarkers(data){
 
@@ -66,8 +103,23 @@ function addMarkers(data){
         var latlng = [data.data[i].lat, data.data[i].lon];
 
         if (aqi_object) {
-            var marked = L.marker(latlng, {
+            // var marked = L.marker(latlng, {
 
+            // })
+            // // .bindPopup("<h3>" + aqi_object + "</h3>")
+            // .bindTooltip(aqi_object,{
+            //     // permanent: true,
+            //     // sticky: true,
+            //     opacity: 0.7,
+            //     direction: 'top'
+            // })
+            // .addTo(map);
+            var marked = L.circle(latlng, {
+                // color:'red',
+                stroke: false,
+                fillColor: aqiGradient(aqi_object),
+                fillOpacity: 0.4,
+                radius: 8000
             })
             // .bindPopup("<h3>" + aqi_object + "</h3>")
             .bindTooltip(aqi_object,{
@@ -89,10 +141,18 @@ d3.json(url_map).then(function(data){
     },1000);
 
     console.log(data);
-    
+    data.data = data.data.filter(item => !item.station.name.includes('USA'));
+    console.log(data);
+
     heat(data);
     addMarkers(data);
     
+    // try to filter and gather all the station IDs or names 
+    // data.filter(x)
+    // function stationName(data){
+    //     return data.station.name;
+    // }
+    // let stationNames = data.filter(stationName);
 });
 
 
