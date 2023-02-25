@@ -1,8 +1,12 @@
 // Place url in a constant variable
 //const url1 = "Input.json"
-token = "7d4b07b555e7bb7b62be7b734a673dd4c7d257d8"
-const url2 = "https://api.waqi.info/feed/geo:"
+//token = ""
+//const url2 = "https://api.waqi.info/feed/geo:"
 const url3 = "AQ Ontario Station Data.csv"
+const urlweather = "https://api.openweathermap.org/data/2.5/forecast?lat="
+const urlpollution = "http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=" 
+//const weathertoken = ""
+
 
 
 // Fetch the JSON data and console log it
@@ -57,16 +61,34 @@ function readData(StationID) {
             lat = data[i].Latitude;
             long = data[i].Longitude;
 
-            var stationurl = url2 + lat + ";" + long + '/?token=' + token
+            var stationurl = urlpollution + lat + "&lon=" + long + "&units=imperial&appid=" + weathertoken
             console.log(stationurl)
-            // Use D3 to retrieve all of the data
-            d3.json(stationurl).then((data) => {
+            // AQI API Begins
+            d3.json(stationurl).then((jsonOutput) => {
                 //add logic for chart here
+                //const obj = JSON.parse(jsonOutput)
+                let fullData = jsonOutput.list
+                //let dailyo3Forecast = fullData.forecast.daily.o3
+                //let dailyPM10Forecast = fullData.forecast.daily.pm10
+                //let dailyCOForecast = fullData.forecast.daily.CO
 
-                console.log(data)
-
+                //console.log(fullData)
+                //console.log(dailyPM10Forecast)
+                //console.log(dailyCOForecast)
+                buildLineChart(fullData)
 
             });
+
+            //Weather API Begins
+            var weatherapi = urlweather + lat + "&lon=" + long + "&units=imperial&appid=" + weathertoken
+            //console.log(weatherapi)
+            d3.json(weatherapi).then((weatherOut) => {
+              let weatherData = weatherOut.list
+              //console.log(weatherData)
+              buildWeatherChart(weatherData)
+              
+
+          });
 
           };
           
@@ -76,6 +98,156 @@ function readData(StationID) {
     
 };
 
+//function to populate weather chart
+function buildWeatherChart(weatherData) {
+
+     
+  var data = [];
+  var dataSerieso3 = { type: "area",   
+                        fillOpacity: .3,
+                        lineThickness: 4,
+                        showInLegend: true,
+                        legendText: "Temperature" };
+/*   var dataSeriespm10 = { type: "spline", 
+                        lineThickness: 4,
+                        showInLegend: true,
+                        legendText: "PM10" };
+  var dataSeriespm25 = { type: "line", 
+                        lineThickness: 2,
+                        showInLegend: true,
+                        legendText: "PM25" }; */
+
+  var dataPointso3 = [];
+  /* var dataPointspm10 = [];
+  var dataPointspm25 = []; */
+  for (var i = 0; i < weatherData.length; i++) {
+    
+    dataPointso3.push({
+      x: new Date(weatherData[i].dt * 1000),
+      y: weatherData[i].main.temp
+    });
+  }
+  /* for (var i = 0; i < pm10.length; i++) {
+    
+    dataPointspm10.push({
+      x: new Date(pm10[i].day),
+      y: pm10[i].avg
+    });
+  }
+  for (var i = 0; i < pm25.length; i++) {
+    
+    dataPointspm25.push({
+      x: new Date(pm25[i].day),
+      y: pm25[i].avg
+    });
+  } */
+  dataSerieso3.dataPoints = dataPointso3;
+ /*  dataSeriespm10.dataPoints = dataPointspm10;
+  dataSeriespm25.dataPoints = dataPointspm25; */
+  data.push(dataSerieso3);
+  /* data.push(dataSeriespm10);
+  data.push(dataSeriespm25); */
+  
+  //Better to construct options first and then pass it as a parameter
+  var options = {
+    zoomEnabled: true,
+    animationEnabled: true,
+    title: {
+      text: "Weather Forecast"
+    },
+    axisY: {
+      title: "Temperature"
+    },
+    axisX: {
+      title: "Date"
+    },
+    data: data  
+  };
+  
+  var chart = new CanvasJS.Chart("chartWeatherContainer", options);
+  var startTime = new Date();
+  chart.render();
+  var endTime = new Date();
+  document.getElementById("timeWeatherToRender").innerHTML = "Time to Render Weather: " + (endTime - startTime) + "ms";
+  
+  }
+
+//function to populate chart
+function buildLineChart(fullData) {
+
+  //var limit = 5000;
+  //var y = 100;    
+  var data = [];
+  var dataSerieso3 = { type: "area",   
+                        fillOpacity: .3,
+                        lineThickness: 4,
+                        showInLegend: true,
+                        legendText: "O3" };
+  var dataSeriespm10 = { type: "spline", 
+                        lineThickness: 4,
+                        showInLegend: true,
+                        legendText: "PM10" };
+  var dataSeriespm25 = { type: "line", 
+                        lineThickness: 2,
+                        showInLegend: true,
+                        legendText: "PM25" };
+
+  var dataPointso3 = [];
+  var dataPointspm10 = [];
+  var dataPointspm25 = [];
+  for (var i = 0; i < fullData.length; i++) {
+    //var readingdate = new Date(fullData[i].dt)
+    //console.log("date is" + readingdate.toDateString())
+    //console.log("original is" + Date(fullData[i].dt))
+    dataPointso3.push({
+      x: new Date(fullData[i].dt * 1000),
+      y: fullData[i].components.o3
+    });
+  }
+  for (var i = 0; i < fullData.length; i++) {
+    
+    dataPointspm10.push({
+      x: new Date(fullData[i].dt * 1000),
+      y: fullData[i].components.pm10
+    });
+  }
+  for (var i = 0; i < fullData.length; i++) {
+    
+    dataPointspm25.push({
+      x: new Date(fullData[i].dt *1000),
+      y: fullData[i].components.pm2_5
+    });
+  }
+  dataSerieso3.dataPoints = dataPointso3;
+  dataSeriespm10.dataPoints = dataPointspm10;
+  dataSeriespm25.dataPoints = dataPointspm25;
+  data.push(dataSerieso3);
+  data.push(dataSeriespm10);
+  data.push(dataSeriespm25);
+  
+  //Better to construct options first and then pass it as a parameter
+  var options = {
+    zoomEnabled: true,
+    animationEnabled: true,
+    title: {
+      text: "Weekly Particle Forecast"
+    },
+    axisY: {
+      title: "Pollutant Level"
+    },
+    axisX: {
+      title: "Date"
+    },
+    data: data  
+  };
+  
+  var chart = new CanvasJS.Chart("chartContainer", options);
+  var startTime = new Date();
+  chart.render();
+  var endTime = new Date();
+  document.getElementById("timeToRender").innerHTML = "Time to Render: " + (endTime - startTime) + "ms";
+  
+  }
 
 // Function that updates dashboard when sample is changed
 function optionChanged(value) { 
