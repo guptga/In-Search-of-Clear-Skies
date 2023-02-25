@@ -9,6 +9,43 @@ coordinates = ['42.895460','-82.513621','46.595439','-76.031763'];
 
 const url_map = `https://api.waqi.info/map/bounds?token=${aqi_key}&latlng=${coordinates[0]},${coordinates[1]},${coordinates[2]},${coordinates[3]}`;
 
+// This section will define color coded leaflet icon markers 
+var aqiIcon = L.Icon.extend({
+    options: {
+        iconSize: [30,30],
+        // iconAnchor:[0,10],
+        // popupAnchor:[0,0]
+    }
+});
+
+var greenIcon = new aqiIcon({iconUrl: 'static/icons/pin-5-48-green.png'}),
+maroonIcon = new aqiIcon({iconUrl: 'static/icons/pin-5-48-maroon.png'}),
+orangeIcon = new aqiIcon({iconUrl: 'static/icons/pin-5-48-orange.png'}),
+purpleIcon = new aqiIcon({iconUrl: 'static/icons/pin-5-48-purple.png'}),
+redIcon = new aqiIcon({iconUrl: 'static/icons/pin-5-48-red.png'}),
+yellowIcon = new aqiIcon({iconUrl: 'static/icons/pin-5-48-yellow.png'});
+
+function markerColor(a){
+    return a > 301 ? maroonIcon: //#660066':
+      a > 201? purpleIcon :
+      a > 151? redIcon :
+      a > 101? orangeIcon :
+      a > 51 ? yellowIcon:
+      a > 0 ? greenIcon :
+      '*';
+}
+
+// Used to decide color of circle markers 
+function aqiGradient(a){
+    return a > 301 ? 'maroon': //#660066':
+      a > 201? 'purple' :
+      a > 151? 'red' :
+      a > 101? 'orange' :
+      a > 51 ? 'yellow':
+      a > 0 ? 'green' :
+      'black';
+}
+
 // function to add heat to map
 function heat(response){
     heatArray = [];
@@ -40,32 +77,35 @@ function heat(response){
     }).addTo(map);
 
     heat.setData(response);
-    heatLayer = {"AQI Heatmap": heat};
+    // heatLayer = {"AQI Heatmap": heat};
  
-    L.control.layers({},heatLayer).addTo(map);
+    // L.control.layers({},heatLayer).addTo(map);
+    var overlayMaps = {
+        Parks: markerClusters,
+        Power_Plants: powerMarker,
+        AQI_Heatmap: heat
+      };
+      
+      // Toggle control for parks and powerstations
+      L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
 }
 
+// // Commenting out this section, already initalized in Michelle's
+// var map = L.map("map", {
+//     center: [43.6532,-79.3832],
+//     zoom: 7, // 5 previously
+//     // layers: [heat]
+// }); 
 
-var map = L.map("map", {
-    center: [43.6532,-79.3832],
-    zoom: 7, // 5 previously
-    // layers: [heat]
-}); 
+// // Adding the tile layer
+// baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     attribution: '&copy; <a href="htts://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+//     minZoom: 2,
+//     maxZoom: 12 // 8 for large map?
+// }).addTo(map);
 
-// Adding the tile layer
-baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="htts://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    minZoom: 2,
-    maxZoom: 12 // 8 for large map?
-}).addTo(map);
-function aqiGradient(a){
-return a > 301 ? 'maroon': //#660066':
-  a > 201? 'purple' :
-  a > 151? 'red' :
-  a > 101? 'orange' :
-  a > 51 ? 'yellow':
-  a > 0 ? 'green' :
-  '#660033';
+
+
 // // Stack overflow version with palettes.js?
 //Get an array of unique categories
 //Reference: [1]
@@ -92,7 +132,7 @@ return a > 301 ? 'maroon': //#660066':
 //                  {color: '#' + paletteMap.get(point.category)} //retrieve mapped colour
 //                 ).addTo(map)
 // }
-}
+
 
 function addMarkers(data){
 
@@ -103,9 +143,9 @@ function addMarkers(data){
         var latlng = [data.data[i].lat, data.data[i].lon];
 
         if (aqi_object) {
-            // var marked = L.marker(latlng, {
-
-            // })
+            var marked = L.marker(latlng, {
+                icon: greenIcon
+            })
             // // .bindPopup("<h3>" + aqi_object + "</h3>")
             // .bindTooltip(aqi_object,{
             //     // permanent: true,
@@ -114,13 +154,13 @@ function addMarkers(data){
             //     direction: 'top'
             // })
             // .addTo(map);
-            var marked = L.circle(latlng, {
-                // color:'red',
-                stroke: false,
-                fillColor: aqiGradient(aqi_object),
-                fillOpacity: 0.4,
-                radius: 8000
-            })
+            // var marked = L.circle(latlng, {
+            //     // color:'red',
+            //     stroke: false,
+            //     fillColor: aqiGradient(aqi_object),
+            //     fillOpacity: 0.4,
+            //     radius: 8000
+            // })
             // .bindPopup("<h3>" + aqi_object + "</h3>")
             .bindTooltip(aqi_object,{
                 // permanent: true,
