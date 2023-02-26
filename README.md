@@ -36,9 +36,9 @@ CO is a colourless, odourless and tasteless but poisonous gas produced primarily
 
 ### Project Goal
 
-The team's approach was to visualize air quality in a meaningful way to a user interacting with your website.
+The team's approach was to visualize air quality in a meaningful way to a user interacting with your website.  There are approximately 30 operating airquality stations in Southern Ontario, which collect readings on an hourly basis.  Open source API data available at https://aqicn.org/ 
 
-This group project is to showcase knowledge of Leaflet, JavaScript and other programming languages studied while at the U of T Data Anaytics Bootcamp. The team is studying AQI in Ontario in respect to proximity to parks and power plants using Leaflet. The team used a variety of tools, including JavaScript, HTML, Python Flask-Powered APIs, etc. to visualize different aspects of air quality, including chart types from Canvas library to show Gauge meter for AQI levels using live data and forecast data for weather and Pollutants levels.
+This group project showcases knowledge of Leaflet, JavaScript and other programming languages studied while at the U of T Data Anaytics Bootcamp. The team is studying AQI in Ontario in respect to proximity to parks and power plants using Leaflet. The team used a variety of tools, including JavaScript, HTML, Python Flask-Powered APIs, etc. to visualize different aspects of air quality, including chart types from Canvas library to show Gauge meter for AQI levels using live data and forecast data for weather and Pollutants levels.
 
 
 ### Project Scope:
@@ -58,7 +58,7 @@ This group project is to showcase knowledge of Leaflet, JavaScript and other pro
 
 🔶 Parks Data: https://www.geoapify.com/places-api
 
-🔶 Weather Datasets: Scraped from http://www.airqualityontario.com/history/summary.php , API from https://openweathermap.org/ , https://aqicn.org/map/canada/ )
+🔶 Weather Datasets: Scraped from http://www.airqualityontario.com/history/summary.php , API from https://openweathermap.org/ , https://aqicn.org/map/canada/ ), and http://www.airqualityontario.com/history/summary.php (Ontario air quality station information)
 
 Tools:
 
