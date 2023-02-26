@@ -36,14 +36,18 @@ CO is a colourless, odourless and tasteless but poisonous gas produced primarily
 
 ### Project Goal
 
-This group project is to showcase knowledge of leaflet, JS and other programming languages studies while at the U of T Data anaytics bootcamp. The team is studying AQI in Ontario in respect to proximity to Parks and power plants using leaflet. Worked with JS visualization using diff chart types from Canvas library to show Gauuge meter for AQI levels using live data and Forecast data for weather and Pollutants levels.
+The team's approach was to visualize air quality in a meaningful way to a user interacting with your website.
+
+This group project is to showcase knowledge of Leaflet, JavaScript and other programming languages studied while at the U of T Data Anaytics Bootcamp. The team is studying AQI in Ontario in respect to proximity to parks and power plants using Leaflet. The team used a variety of tools, including JavaScript, HTML, Python Flask-Powered APIs, etc. to visualize different aspects of air quality, including chart types from Canvas library to show Gauge meter for AQI levels using live data and forecast data for weather and Pollutants levels.
 
 
 ### Project Scope:
 
-🔶 Location : This Project is based in Ontario
+🔶 Location : This Project is based in Southern Ontario
 
-🔶 Time Range : 
+🔶 Latitude and Longitude boundaries : 42.895460, -82.513621, 46.595439, -76.031763
+
+🔶 Time Range : Live and historical (static)
 
 
 ### Resources:
@@ -58,18 +62,19 @@ This group project is to showcase knowledge of leaflet, JS and other programming
 
 Tools:
 
-🔶 Software: Visual Studio,PostGreSQL
+🔶 Software: Visual Studio, Python Flask-Powered APIs, PostGreSQL
 
 🔶 Language:  Python, SQL, HTML, JavaScript
 
-🔶 Library: Pandas, Flask, D3, Leaflet, OpenLayers, Canvas
+🔶 Library: Pandas, Flask, D3, Leaflet, MarkerClusters, Custom Icons, OpenLayers, Canvas, JQuery
 
-🔶 Visualization: Leaflet, HTML/CSS/Bootstrap/Javascript
+🔶 Visualization: Leaflet, HTML/CSS/Bootstrap/Javascript, Bulma (templates)
 
 
 ### Limitations: 
 
 >> Notably have to host live server for CORS policy on weather/pm forecast
+>> Cannot host the Flask API/PostgreSQL DB live on Github without additional user interfaces
 
 
 ### Team Members
