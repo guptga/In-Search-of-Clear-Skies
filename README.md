@@ -58,7 +58,7 @@ This group project showcases knowledge of Leaflet, JavaScript and other programm
 
 🔶 Parks Data: https://www.geoapify.com/places-api
 
-🔶 Weather Datasets: Scraped from http://www.airqualityontario.com/history/summary.php , API from https://openweathermap.org/ , https://aqicn.org/map/canada/ ), and http://www.airqualityontario.com/history/summary.php (Ontario air quality station information)
+🔶 Air Quality Datasets: Scraped from http://www.airqualityontario.com/history/summary.php , API from https://openweathermap.org/ , https://aqicn.org/map/canada/ )
 
 Tools:
 
