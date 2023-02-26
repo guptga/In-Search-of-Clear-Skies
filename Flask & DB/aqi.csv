@@ -1,0 +1,28 @@
+Station ID,Station,aqi,co,no2,o3,pm25
+47045,Barrie,32,na,1.5,32,17
+54012,Belleville,30,na,2.4,30.4,17
+46090,Brampton,30,na,5.1,28.9,30
+21005,Brantford,42,na,3.4,30.4,42
+44008,Burlington,42,na,5.4,25.6,42
+13001,Chatham,29,na,6.2,29.1,21
+56051,Cornwall,26,na,4.4,26.4,17
+28028,Guelph,34,na,2.3,30.4,34
+29000,Hamilton,55,na,5.3,25.6,55
+52023,Kingston,30,na,2.8,29.6,17
+26060,Kitchener,38,na,4,29.6,38
+15026,London,25,1,21.5,24.8,21
+44029,Milton,42,na,6.1,26.4,42
+46108,Mississauga,42,na,5,28.1,42
+48006,Newmarket,30,na,3.6,29.6,21
+75010,North Bay,29,na,1.5,28.9,9
+44017,Oakville,38,na,3.5,28.9,38
+45027,Oshawa,34,na,1.3,33.6,9
+51001,Ottawa,25,5,7,24.1,25
+59006,Peterborough,30,na,1.7,30.4,17
+14111,Sarnia,29,na,6.2,28.9,17
+71078,Sault Ste. Marie,27,na,8.7,27.2,13
+27067,St. Catharines,38,na,4.7,28.1,38
+77233,Sudbury,27,na,3.4,27.2,13
+63203,Thunder Bay,28,na,6.1,28.1,25
+31129,Toronto,25,2.3,15,20,25
+12008,Windsor,55,3.2,10,24.8,55
