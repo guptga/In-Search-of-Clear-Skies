@@ -36,7 +36,7 @@ CO is a colourless, odourless and tasteless but poisonous gas produced primarily
 
 ### Project Goal
 
-This group project is to showcase knowledge of leaflet, JS and other programming languages studies while at the U of T Data anaytics bootcamp. The team is studying AQI in Ontario in respect to proximity to Parks and power plants using leaflet. Worked with JS visualization using diff chart types from Canvas library to show Gauuge meter for AQI levels using live data and Forecast data for weather and Poullutants levels.
+This group project is to showcase knowledge of leaflet, JS and other programming languages studies while at the U of T Data anaytics bootcamp. The team is studying AQI in Ontario in respect to proximity to Parks and power plants using leaflet. Worked with JS visualization using diff chart types from Canvas library to show Gauuge meter for AQI levels using live data and Forecast data for weather and Pollutants levels.
 
 
 ### Project Scope:
