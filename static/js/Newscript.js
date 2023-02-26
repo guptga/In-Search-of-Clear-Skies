@@ -2,7 +2,8 @@
 //const url1 = "Input.json"
 //token = ""
 //const url2 = "https://api.waqi.info/feed/geo:"
-const url3 = "AQ Ontario Station Data.csv";
+// const url3 = "AQ Ontario Station Data.csv";
+const url3 = "https://raw.githubusercontent.com/guptga/Project-3-In-Search-of-Clear-Skies/main/AQ%20Ontario%20Station%20Data.csv";
 const urlweather = "https://api.openweathermap.org/data/2.5/forecast?lat=";
 const urlpollution = "http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=" ;
 // const weathertoken = "";
