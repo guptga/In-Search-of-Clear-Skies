@@ -1,3 +1,5 @@
+let mapID = document.getElementsByTagName('map').id;
+
 var map = L.map( 'map', {
   center: [43.6532,-79.3832], // [44.0, -79.0],
   minZoom: 2,

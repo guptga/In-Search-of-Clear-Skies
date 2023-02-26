@@ -1,8 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Leaflet Cluster Parks</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <link 
+      rel="stylesheet" 
+      type="text/css" 
+      href="style.css"
+    />
+    <!-- Inline styling for forecasts -->
+    <link rel="stylesheet" href="">
+        <style>
+            #timeToRender {
+                position:absolute; 
+                top: 660px; 
+                font-size: 10px; 
+                font-weight: bold; 
+                background-color: #d85757;
+                padding: 0px 4px;
+                color: #ffffff;
+            }
+        </style>
+        <style>
+            #timeWeatherToRender {
+                position:absolute; 
+                top: 660px; 
+                font-size: 10px; 
+                font-weight: bold; 
+                background-color: #145e21;
+                padding: 0px 4px;
+                color: #ffffff;
+            }
+        </style>
 
     <link
       rel="stylesheet"
@@ -21,12 +54,6 @@
       href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.Default.css"
       integrity="sha384-wgw+aLYNQ7dlhK47ZPK7FRACiq7ROZwgFNg0m04avm4CaXS+Z9Y7nMu8yNjBKYC+"
       crossorigin="anonymous"
-    />
-
-    <link 
-      rel="stylesheet" 
-      type="text/css" 
-      href="style.css"
     />
 
     <script
@@ -54,12 +81,62 @@
 
   </head>
 
+
   <body>
-    <div
-      id="map"
-    ></div>
-    <!-- Michelle -->
-    <script type="text/javascript" src="PARKS/power.js"></script>
+    
+    
+    
+    
+  <section class="section">
+    <div class="container">
+      <h1 class="title has-text-centered">
+        AQI Dashboard
+      </h1>
+      <p class="subtitle has-text-centered">
+        My first website with <strong>Bulma</strong>!
+      </p>
+    </div>
+    <div class="block"></div>
+    <div class="tile is-ancestor">
+        <div class="tile is-parent is-12">
+            <article class="tile is-child box is-8">
+                <p class="title has-text-centered">Gauge</p>
+                <p> gauge here?</p>
+            </article>
+            <article class="tile is-child box is-4 is-centered">
+              <p class="title has-text-centered is-size-5">Select Station</p>
+              <div class="block"></div>
+              <select id="locality-dropdown" name="station" onchange="optionChanged(this.value)"></select>
+            </article>
+        </div>
+    </div>
+    
+    <div class="tile is-ancestor">
+      <div class="tile is-parent is-14">
+        <div class="tile is-child">
+        <div class="content">
+          <div id="chartWeatherContainer" style="height: 370px; width: 85%;"></div>
+          <span id="timeWeatherToRender"></span>
+        </div>
+      </div>
+        <div class="tile is-child">
+          <div id="chartContainer" style="height: 370px; width: 85%;"></div>
+          <span id="timeToRender"></span>
+        </div>
+      
+      </div>
+    </div>
+    <div class="tile is-ancestor is-centered">
+      <div class="tile is-child box is-centered">
+        <div class="content">
+            <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Michelle -->
+  <script type="text/javascript" src="PARKS/power.js"></script>
     <script type="text/javascript" src="Parks/markers.js"></script>
     <script type="text/javascript" src="Parks/logic.js"></script>
     <script src="static/js/app.js"></script>
@@ -67,8 +144,10 @@
     <script type="text/javascript" src="static/js/api_keys.js"></script>
     <script type="text/javascript" src="sample_power_plant.js"></script>
     <script type="text/javascript" src="static/js/app_d3_starter.js"></script>
-    <script type="text/javascript" src="sortingPowerPlants.js"></script>
-
+    <!-- Gauri -->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="static/js/Newscript.js" async defer></script>
+  
   </body>
 </html>
-

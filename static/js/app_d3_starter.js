@@ -144,7 +144,7 @@ function addMarkers(data){
 
         if (aqi_object) {
             var marked = L.marker(latlng, {
-                icon: greenIcon
+                icon: markerColor(aqi_object)
             })
             // // .bindPopup("<h3>" + aqi_object + "</h3>")
             // .bindTooltip(aqi_object,{

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Test Site</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            #timeToRender {
+                position:absolute; 
+                top: 400px; 
+                font-size: 10px; 
+                font-weight: bold; 
+                background-color: #d85757;
+                padding: 0px 4px;
+                color: #ffffff;
+            }
+        </style>
+        <style>
+            #timeWeatherToRender {
+                position:absolute; 
+                top: 30px; 
+                font-size: 10px; 
+                font-weight: bold; 
+                background-color: #145e21;
+                padding: 0px 4px;
+                color: #ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <select id="locality-dropdown" name="station" onchange="optionChanged(this.value)"></select>
+        <div></div>
+        <div id="chartWeatherContainer" style="height: 370px; width: 35%;"></div>
+        <span id="timeWeatherToRender"></span>
+        <div id="chartContainer" style="height: 370px; width: 35%;"></div>
+        <span id="timeToRender"></span>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="statis/js/Newscript.js" async defer></script>
+        <script src="static/js/api_keys.js" async defer></script>
+
+
+        
+        </select>
+    </body>
+</html>

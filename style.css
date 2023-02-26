@@ -6,7 +6,9 @@ body {
 #map,
 body,
 html {
-  height: 100%;
+  /* height: 90%; */
+  width:800px;
+  height:700px;
 }
 
 .info {
@@ -31,3 +33,17 @@ html {
   opacity: 0.7;
   }
 
+  #custom-bg {
+    background-image: url('https://globalnews.ca/wp-content/uploads/2021/10/CP17269726.jpg?quality=85&strip=all');
+    -webkit-background-size: cover; 
+    -moz-background-size: cover;
+    -o-background-size: cover; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
