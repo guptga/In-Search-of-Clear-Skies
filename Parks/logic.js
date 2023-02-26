@@ -18,8 +18,8 @@ var myIcon2 = L.icon({
   iconUrl: myURL + 'images/powerplant.png',
   iconRetinaUrl: myURL + 'images/powerplant.png',
   iconSize: [25, 20],
-  iconAnchor: [9, 21],
-  popupAnchor: [0, -14]
+  // iconAnchor: [9, 21],
+  // popupAnchor: [0, -14]
 });
 
 var powerMarker = L.layerGroup();
@@ -29,7 +29,13 @@ for ( var i = 0; i < power.length; ++i )
   var popup = power[i].name +
       '<br/><b>Longitude:</b> ' + power[i].primary_fuel;
   var p = L.marker( [power[i].latitude, power[i].longitude], {icon: myIcon2} )
-                  .bindPopup( popup );
+                  // .bindPopup( popup );
+                  .bindTooltip("<div class = 'has-text-centered'>" + power[i].name + "</br>Type: " + power[i].primary_fuel + "</div>",{
+                    // permanent: true,
+                    // sticky: true,
+                    opacity: 0.7,
+                    direction: 'top'
+                });
  
   powerMarker.addLayer( p );
 }

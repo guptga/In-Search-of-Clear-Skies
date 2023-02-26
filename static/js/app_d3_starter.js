@@ -80,14 +80,8 @@ function heat(response){
     // heatLayer = {"AQI Heatmap": heat};
  
     // L.control.layers({},heatLayer).addTo(map);
-    var overlayMaps = {
-        Parks: markerClusters,
-        Power_Plants: powerMarker,
-        AQI_Heatmap: heat
-      };
-      
-      // Toggle control for parks and powerstations
-      L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
+
+   
 }
 
 // // Commenting out this section, already initalized in Michelle's
@@ -137,7 +131,7 @@ function heat(response){
 function addMarkers(data){
 
     markerArray = [];
-
+    circleArray = [];
     for (var i = 0; i < data.data.length; i++) {
         var aqi_object = data.data[i].aqi;
         var latlng = [data.data[i].lat, data.data[i].lon];
@@ -152,27 +146,49 @@ function addMarkers(data){
             //     // sticky: true,
             //     opacity: 0.7,
             //     direction: 'top'
-            // })
-            // .addTo(map);
-            // var marked = L.circle(latlng, {
-            //     // color:'red',
-            //     stroke: false,
-            //     fillColor: aqiGradient(aqi_object),
-            //     fillOpacity: 0.4,
-            //     radius: 8000
-            // })
-            // .bindPopup("<h3>" + aqi_object + "</h3>")
-            .bindTooltip(aqi_object,{
+            .bindTooltip("<div class = 'has-text-centered'>AQI: " + aqi_object + "</br>" + data.data[i].station.name + "</div>",{
                 // permanent: true,
                 // sticky: true,
                 opacity: 0.7,
                 direction: 'top'
+            });
+            // .addTo(map);
+            var circled = L.circle(latlng, {
+                // color:'red',
+                stroke: false,
+                fillColor: aqiGradient(aqi_object),
+                fillOpacity: 0.4,
+                radius: 8000
             })
-            .addTo(map);
+            .bindTooltip("<div class = 'has-text-centered'>AQI: " + aqi_object + "</br>" + data.data[i].station.name + "</div>",{
+                // permanent: true,
+                // sticky: true,
+                opacity: 0.7,
+                direction: 'top'
+            });
+            // .addTo(map);
             markerArray.push(marked);
+            circleArray.push(circled);
         }
 
     }
+    var aqiMarkerLayer = L.layerGroup(markerArray);
+    var circleMarkerLayer = L.layerGroup(circleArray);
+    var baseMaps = {
+        Markers: aqiMarkerLayer,
+        Circles: circleMarkerLayer
+    };
+
+    var overlayMaps = {
+        Parks: markerClusters,
+        Power_Plants: powerMarker,
+        // AQI_Heatmap: heat
+      };
+      
+      // Toggle control for parks and powerstations
+      L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(map);
+      
+
     
 }
 
@@ -184,7 +200,7 @@ d3.json(url_map).then(function(data){
     data.data = data.data.filter(item => !item.station.name.includes('USA'));
     console.log(data);
 
-    heat(data);
+    // heat(data);
     addMarkers(data);
     
     // try to filter and gather all the station IDs or names 

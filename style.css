@@ -1,14 +1,18 @@
 body {
   padding: 0;
   margin: 0;
+  /* background-image: url('https://globalnews.ca/wp-content/uploads/2021/10/CP17269726.jpg?quality=85&strip=all'); */
+  /* background-color: #ffffff; */
+  /* height:100%; */
 }
 
 #map,
 body,
 html {
   /* height: 90%; */
-  width:800px;
+  /* width:800px; */
   height:700px;
+  width:100%;
 }
 
 .info {
@@ -42,8 +46,26 @@ html {
     background-repeat: no-repeat;
     background-position: center;
 }
-<style>
+
+
+/* <style>
 .dropdown {
   position: relative;
   display: inline-block;
-}
+} */
+
+/* .locality-dropdown {
+  position: center;
+} */
+
+/* select {
+  width: 50%;
+} */
+
+/* .select {
+  align-items: center;
+} */
+
+/* .select:after {
+  justify-self: end;
+} */
