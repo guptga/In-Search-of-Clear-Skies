@@ -71,10 +71,18 @@ Tools:
 🔶 Visualization: Leaflet, HTML/CSS/Bootstrap/Javascript, Bulma (templates)
 
 
+### Project Outcomes:
+
+When managing the deliverables and creating our dashboard, we took into consideration several factors:
+* Sources of data: because we were using more than one data source, we had to ensure that the data was compatible and could coordinate seemlessly across our dashboard.
+* We paid close attention to the user interaction with our dashboard and the number of events that would be initiated by the user's selection from a drop down box.
+* We sought to providing a meangingful and interesting visual story with out visualizations.
+
+
 ### Limitations: 
 
->> Notably have to host live server for CORS policy on weather/pm forecast
->> Cannot host the Flask API/PostgreSQL DB live on Github without additional user interfaces
+* Notably we have to host live server for CORS policy on weather/pm forecast
+* Cannot host the Flask API/PostgreSQL DB live on Github without additional user interfaces
 
 
 ### Team Members
