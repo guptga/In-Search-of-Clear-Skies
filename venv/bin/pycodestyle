@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' "/Users/michelle.carvalho/Dropbox/Mac/Desktop/Data_Analytics_Bootcamp/Challenge Assignments/Project-3-In-Search-of-Clear-Skies/venv/bin/python" "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from pycodestyle import _main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(_main())
