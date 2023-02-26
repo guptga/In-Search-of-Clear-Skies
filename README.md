@@ -12,5 +12,6 @@ The Air Quality Index is a scale designed to convey the current state of air qua
 ### Project Goal
 
 ### Project Dashboard Overview
+>> Notably have to host live server for CORS policy on weather/pm forecast
 ### Conclusion
 ### Team Members
