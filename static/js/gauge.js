@@ -1,94 +1,97 @@
-// Demographic Info
-/*
-function demographic(id) {
-    d3.json(url).then(function(data) {
-        var MetaData = data.metadata;
-        var microbe = MetaData.filter(sampleObj => sampleObj.id == id);
-        var result = microbe[0];
-        var infobox = d3.select("#sample-metadata");
-        infobox.html("");
-        Object.entries(result).forEach(([key, value]) => {
-            infobox.append("h5").text(`${key}: ${value}`);
-        });
 
-        var gauge = [
-            {
-                domain: {x: [0, 5], y: [0, 1]},
-                value: result.wfreq,
-                text: result.wfreq,
-                type: "indicator",
-                mode: "gauge+number",
-                delta: { reference: 10},
-                gauge: {
-                    axis: { range: [null, 9] },
-                    steps: [
-                        { range: [0, 1], color: "rgb(249, 243, 236)" },
-                        { range: [1, 2], color: "rgb(240, 234, 220)" },
-                        { range: [2, 3], color: "rgb(231, 225, 205)" },
-                        { range: [3, 4], color: "rgb(219, 217, 190)" },
-                        { range: [4, 5], color: "rgb(205, 209, 176)" },
-                        { range: [5, 6], color: "rgb(190, 202, 164)" },
-                        { range: [6, 7], color: "rgb(173, 195, 153)" },
-                        { range: [7, 8], color: "rgb(154, 188, 144)" },
-                        { range: [8, 9], color: "rgb(133, 181, 137)" },
-                    ],
-                },
-            },
-        ];
-
-        var layout = {
-            title: "<b> Air Quality </b> <br> Index </br>",
-            width: 500,
-            height: 500,
-            margin: { t: 50, r: 25, l: 25, b: 25},
-        };
-        Plotly.newPlot('gauge', gauge, layout);
-    });
+function fetchAQIData(station) {
+    fetch('https://raw.githubusercontent.com/guptga/Project-3-In-Search-of-Clear-Skies/Michelle/Flask%20%26%20DB/aqi.csv')
+        .then(response => response.text())
+        .then(data => {
+        // parse the CSV data
+        let rows = data.split('\n');
+        let headers = rows[0].split(',');
+        let index = headers.indexOf(station);
+        let values = rows[1].split(',');
+        let aqi = values[index];
+        // set the dial with the fetched AQI data
+        setDial(station, aqi);
+        })
+        .catch(error => console.error(error));
 }
-*/
 
-// Get the container element
-var target = document.getElementById('gauge');
-var container = document.getElementById("gauge-container");
+function setDial(station, aqi) {
+    let angle = getAQIDialAngle(aqi);
+    let [bg, white] = getAQIColor(aqi);
 
-// Set the gauge options
-var options = {
-  angle: 0,
-  lineWidth: 0.2,
-  radiusScale: 1,
-  pointer: {
-    length: 0.5,
-    strokeWidth: 0.035,
-    color: '#000000'
-  },
-  limitMax: true,
-  limitMin: true,
-  strokeColor: '#E0E0E0',
-  generateGradient: true,
-  highDpiSupport: true
-};
+    let meter = document.querySelector(".gauge > div[role=meter]");
+    let dial = meter.querySelector(".dial");
+    meter.setAttribute("aria-valuenow", aqi);
+    meter.setAttribute("aria-valuetext", aqi);
+    dial.querySelector(".aqi-num").textContent = aqi;
+    dial.querySelector(".arrow").style.transform = `rotate(${angle - 90}deg)`;
+    dial.style.backgroundColor = bg;
+    dial.classList.toggle("white", white);
+    let stationName = dial.querySelector(".station-name");
 
-// Initialize the gauge
-var gauge = new Gauge(container).setOptions(options);
+    if(!station) {
+        console.error("Invalid station value");
+        return;
+    } else if (stationName) {
+        stationName.textContent = station;
+    }
 
-// Set the gauge value based on the AQI
-gauge.maxValue = 500; // Maximum AQI value
-gauge.setMinValue(0); // Minimum AQI value
-gauge.set(100); // Set the current AQI value
+}
 
-// Set the gauge colors based on the AQI level
-gauge.colorize = function(value) {
-  if (value <= 50) {
-    return '#00E400'; // Good AQI level
-  } else if (value <= 100) {
-    return '#FFFF00'; // Moderate AQI level
-  } else if (value <= 150) {
-    return '#FF7E00'; // Unhealthy for Sensitive Groups AQI level
-  } else if (value <= 200) {
-    return '#FF0000'; // Unhealthy AQI level
-  } else if (value <= 300) {
-    return '#8F3F97'; // Very Unhealthy AQI level
-  } else {
-    return '#7E0023'; // Hazardous AQI level
-  }
-};
+function getAQIDialAngle(aqi) {
+    if (aqi >= 301) {
+    return Math.min((aqi - 301) / 200 * 30 + 150, 180);
+    } else if (aqi >= 201) {
+    return (aqi - 201) / 100 * 30 + 120;
+    } else if (aqi >= 151) {
+    return (aqi - 151) / 50 * 30 + 90;
+    } else if (aqi >= 101) {
+    return (aqi - 101) / 50 * 30 + 60;
+    } else if (aqi >= 51) {
+    return (aqi - 51) / 50 * 30 + 30;
+    } else if (aqi >= 0) {
+    return aqi / 50 * 30;
+    } else {
+    return 0;
+    }
+}
+
+function getAQIColor(aqi) {
+    function combineColors(c1, c2, bias) {
+    return c1.map((c, i) => ((c * (1 - bias)) + (c2[i] * bias)));
+    }
+
+    function stringifyColor(c) {
+    return `rgb(${c})`;
+    }
+
+    function calculateColors(c1, c2, bias) {
+    let bg = combineColors(c1, c2, bias);
+    let white = ((bg[0] * 299) + (bg[1] * 587) + (bg[2] * 114)) / 1000 < 128;
+    return [stringifyColor(bg), white];
+    }
+
+    const aqiColorMap = [
+    [0, [0, 255, 0]],
+    [50, [255, 255, 0]],
+    [100, [255, 126, 0]],
+    [150, [255, 0, 0]],
+    [200, [143, 63, 151]],
+    [300, [126, 0, 35]]
+    ];
+
+    for (let i in aqiColorMap) {
+    let [target, color] = aqiColorMap[i];
+    if (target > aqi) {
+        if (i == 0) {
+        return calculateColors(color, color, 1);
+        }
+
+        let [prevTarget, prevColor] = aqiColorMap[i - 1];
+        return calculateColors(prevColor, color, (aqi - prevTarget) / (target - prevTarget));
+    }
+    }
+
+    let [, color] = aqiColorMap[aqiColorMap.length - 1];
+    return calculateColors(color, color, 1);
+}
