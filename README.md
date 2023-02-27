@@ -66,7 +66,7 @@ Tools:
 
 🔶 Language:  Python, SQL, HTML, JavaScript
 
-🔶 Library: Pandas, Flask, D3, Leaflet, MarkerClusters, Custom Icons, OpenLayers, Canvas, JQuery
+🔶 Library: Pandas, Flask, D3, Leaflet, MarkerClusters, Custom Icons, OpenLayers, Canvas, JQuery (JavaScript Library)
 
 🔶 Visualization: Leaflet, HTML/CSS/Bootstrap/Javascript, Bulma (templates)
 
