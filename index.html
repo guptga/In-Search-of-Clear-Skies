@@ -80,73 +80,69 @@
     <!-- <script type="text/javascript" src="static/leaflet_plugins/leaflet-heat.js"></script> -->
 
   </head>
-
-
   <body>
-    
-    
-    
-    
-  <section class="section">
-    <div class="container">
-      <h1 class="title has-text-centered">
-        AQI Dashboard
-      </h1>
-      <p class="subtitle has-text-centered">
-        Data Analytics Bootcamp U of T
-      </p>
-    </div>
-    <div class="block"></div>
-    <div class="tile is-ancestor">
-        <div class="tile is-parent is-12">
-            <article class="tile is-child box is-8 is-centered">
-                <p class="title has-text-centered">Gauge</p>
-                <div class="gauge">
-                  <div role="meter" style="position: relative;" aria-valuemin="0" aria-valuemax="500" aria-valuenow="0" aria-valuetext="0">
-                    <div class="dial">
-                      <div class="station-name"></div>
-                      <div class="aqi-num"></div>
-                      <div class="arrow"></div>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">
+          AQI Dashboard
+        </h1>
+        <h2 class="subtitle">
+          Data Analytics Bootcamp U of T
+        </h2>
+      </div>
+      <div class="block"></div>
+      <div class="tile is-ancestor">
+          <div class="tile is-parent is-12">
+              <article class="tile is-child box is-8 is-centered">
+                  <p class="title has-text-centered">Gauge</p>
+                  <div class="gauge">
+                    <div role="meter" style="position: relative;" aria-valuemin="0" aria-valuemax="500" aria-valuenow="0" aria-valuetext="0">
+                      <div class="dial">
+                        <div class="station-name" style="margin-left: 50px;"> </div>
+                        <span class="aqi-num"></span>
+                          <span>AQI</span>
+                        <div class="arrow"></div>
+                      </div>
                     </div>
-                  </div>
-            </article>
-            <article class="tile is-child box is-4 is-centered">
-              <p class="title has-text-centered is-size-5">Select Station</p>
-              <div class="block"></div>
-              <select id="locality-dropdown" name="station" onchange="optionChanged(this.value)"></select>
-            </article>
-        </div>
-    </div>
-    
-    <div class="tile is-ancestor">
-      <div class="tile is-parent is-14">
-        <div class="tile is-child box">
-        <div class="content">
-          <div id="chartWeatherContainer" style="height: 370px; width: 90%;"></div>
-          <span id="timeWeatherToRender"></span>
-        </div>
+              </article>
+              <article class="tile is-child box is-4 is-centered">
+                <p class="title is-size-5">Select Station</p>
+                <div class="block"></div>
+                <select id="locality-dropdown" name="station" onchange="optionChanged(this.value)"></select>
+              </article>
+          </div>
       </div>
-        <div class="tile is-child box">
-          <div id="chartContainer" style="height: 370px; width: 90%;"></div>
-          <span id="timeToRender"></span>
-        </div>
       
-      </div>
-    </div>
-    <div class="tile is-ancestor is-centered">
-      <div class="tile is-child box is-centered">
-        <div class="content">
-            <div id="map"></div>
+      <div class="tile is-ancestor">
+        <div class="tile is-parent is-14">
+          <div class="tile is-child box">
+          <div class="content">
+            <div id="chartWeatherContainer" style="height: 370px; width: 90%;"></div>
+            <span id="timeWeatherToRender"></span>
+          </div>
+        </div>
+          <div class="tile is-child box">
+            <div id="chartContainer" style="height: 370px; width: 90%;"></div>
+            <span id="timeToRender"></span>
+          </div>
+        
         </div>
       </div>
-    </div>
-  </section>
+      <div class="tile is-ancestor is-centered">
+        <div class="tile is-child box is-centered">
+          <div class="content">
+              <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Michelle -->
-  <script type="text/javascript" src="PARKS/power.js"></script>
+    <!-- Chu -->
+    <script type="text/javascript" src="static/js/gauge.js" async defer></script>
+    <!-- Michelle -->
+    <script type="text/javascript" src="PARKS/power.js"></script>
     <script type="text/javascript" src="Parks/markers.js"></script>
     <script type="text/javascript" src="Parks/logic.js"></script>
-    <script src="static/js/app.js"></script>
     <!-- Benjamin -->
     <script type="text/javascript" src="static/js/api_keys.js"></script>
     <script type="text/javascript" src="static/js/app_d3_starter.js"></script>
@@ -154,8 +150,5 @@
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="static/js/Newscript.js" async defer></script>
-    <!-- Chu -->
-    <script scr="static/js/gauge.js"></script>
-  
   </body>
 </html>

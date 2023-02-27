@@ -63,6 +63,7 @@ function readData(StationID) {
             long = data[i].Longitude;
 
             var stationurl = urlpollution + lat + "&lon=" + long + "&units=imperial&appid=" + weathertoken;
+            var urlGauge = "https://api.waqi.info/feed/geo:" + lat + ";" + long + "/?token=" + aqi_key;
             console.log(stationurl)
             // AQI API Begins
             d3.json(stationurl).then((jsonOutput) => {
@@ -90,9 +91,16 @@ function readData(StationID) {
               
 
           });
+          d3.json(urlGauge).then(function(data) {
+            console.log(data);
+  
+            let aqi = data.data.aqi;
+            console.log(aqi);
+            setDial(aqi);
+          });
 
-          };
-          
+        };
+
     	}    
       });
 
@@ -258,8 +266,7 @@ function optionChanged(value) {
 
     // Call all functions 
     readData(value);
-    fetchAQIData(value);
-  
+
 };
 
 

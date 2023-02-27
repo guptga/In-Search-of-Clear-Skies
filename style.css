@@ -1,9 +1,7 @@
 body {
   padding: 0;
   margin: 0;
-  /* background-image: url('https://globalnews.ca/wp-content/uploads/2021/10/CP17269726.jpg?quality=85&strip=all'); */
-  /* background-color: #ffffff; */
-  /* height:100%; */
+
 }
 
 #map,
@@ -13,6 +11,24 @@ html {
   /* width:800px; */
   height:700px;
   width:100%;
+}
+
+.section{
+  background-image: url('https://wallpaperaccess.com/full/1305710.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow:auto;
+}
+
+.title {
+  text-align: center;
+  color: auto;
+}
+
+.subtitle {
+  text-align: center;
+  color: auto;
 }
 
 .info {
@@ -37,17 +53,6 @@ html {
   opacity: 0.7;
   }
 
-  #custom-bg {
-    background-image: url('https://globalnews.ca/wp-content/uploads/2021/10/CP17269726.jpg?quality=85&strip=all');
-    -webkit-background-size: cover; 
-    -moz-background-size: cover;
-    -o-background-size: cover; 
-    background-size: cover; 
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-
 .gauge {
   display: inline-block;
   position: relative;
@@ -60,7 +65,7 @@ html {
   width: 16rem;
   height: 8rem;
   background-color: black;
-  position: relative;
+  position: absolute;
   overflow: hidden;
   background: conic-gradient(from 0deg at 50% 100%,
                               red 30deg, #8f3f97 30deg 60deg,
