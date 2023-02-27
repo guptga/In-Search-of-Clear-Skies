@@ -1,5 +1,7 @@
+let mapID = document.getElementsByTagName('map').id;
+
 var map = L.map( 'map', {
-  center: [44.0, -79.0],
+  center: [43.6532,-79.3832], // [44.0, -79.0],
   minZoom: 2,
   zoom: 7,
 });
@@ -16,19 +18,24 @@ var myIcon2 = L.icon({
   iconUrl: myURL + 'images/powerplant.png',
   iconRetinaUrl: myURL + 'images/powerplant.png',
   iconSize: [25, 20],
-  iconAnchor: [9, 21],
-  popupAnchor: [0, -14]
+  // iconAnchor: [9, 21],
+  // popupAnchor: [0, -14]
 });
 
 var powerMarker = L.layerGroup();
  
 for ( var i = 0; i < power.length; ++i )
 {
-  var popup = 
-      '<br/><b>Name:</b> ' + power[i].name +
-      '<br/><b>Power Source:</b> ' + power[i].primary_fuel;
+  var popup = power[i].name +
+      '<br/><b>Longitude:</b> ' + power[i].primary_fuel;
   var p = L.marker( [power[i].latitude, power[i].longitude], {icon: myIcon2} )
-                  .bindPopup( popup );
+                  // .bindPopup( popup );
+                  .bindTooltip("<div class = 'has-text-centered'>" + power[i].name + "</br>Type: " + power[i].primary_fuel + "</div>",{
+                    // permanent: true,
+                    // sticky: true,
+                    opacity: 0.7,
+                    direction: 'top'
+                });
  
   powerMarker.addLayer( p );
 }
@@ -68,4 +75,4 @@ var overlayMaps = {
 };
 
 // Toggle control for parks and powerstations
-L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
+// L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
