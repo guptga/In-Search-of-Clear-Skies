@@ -1,6 +1,6 @@
-
+/*
 function fetchAQIData(station) {
-    fetch('https://raw.githubusercontent.com/guptga/Project-3-In-Search-of-Clear-Skies/Michelle/Flask%20%26%20DB/aqi.csv')
+    fetch('https://raw.githubusercontent.com/guptga/Project-3-In-Search-of-Clear-Skies/main/aqi.csv')
         .then(response => response.text())
         .then(data => {
         // parse the CSV data
@@ -10,12 +10,12 @@ function fetchAQIData(station) {
         let values = rows[1].split(',');
         let aqi = values[index];
         // set the dial with the fetched AQI data
-        setDial(station, aqi);
+        setDial(aqi);
         })
         .catch(error => console.error(error));
 }
-
-function setDial(station, aqi) {
+*/
+function setDial(aqi) {
     let angle = getAQIDialAngle(aqi);
     let [bg, white] = getAQIColor(aqi);
 
@@ -27,6 +27,8 @@ function setDial(station, aqi) {
     dial.querySelector(".arrow").style.transform = `rotate(${angle - 90}deg)`;
     dial.style.backgroundColor = bg;
     dial.classList.toggle("white", white);
+    
+    /*
     let stationName = dial.querySelector(".station-name");
 
     if(!station) {
@@ -35,6 +37,7 @@ function setDial(station, aqi) {
     } else if (stationName) {
         stationName.textContent = station;
     }
+    */
 
 }
 
