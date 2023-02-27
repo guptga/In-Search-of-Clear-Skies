@@ -76,7 +76,7 @@ Tools:
 When managing the deliverables and creating our dashboard, we took into consideration several factors:
 * Sources of data: because we were using more than one data source, we had to ensure that the data was compatible and could coordinate seemlessly across our dashboard.
 * We paid close attention to the user interaction with our dashboard and the number of events that would be initiated by the user's selection from a drop down box.
-* We sought to provide a meangingful and interesting visual story with our visualizations.
+* We sought to provide a meangingful and interesting story with our visualizations.
 
 
 ### Limitations: 
