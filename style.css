@@ -21,16 +21,6 @@ html {
   overflow:auto;
 }
 
-.title {
-  text-align: center;
-  color: white;
-}
-
-.subtitle {
-  text-align: center;
-  color: white;
-}
-
 .info {
   padding: 6px 8px;
   font: 14px/16px Arial, Helvetica, sans-serif;
