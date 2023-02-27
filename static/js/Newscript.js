@@ -258,8 +258,11 @@ function optionChanged(value) {
 
     // Call all functions 
     readData(value);
+    fetchAQIData(value);
   
 };
+
+
 
 /*
 // Set up D3 margin and dimensions for chart

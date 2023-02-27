@@ -17,7 +17,7 @@
         <style>
             #timeToRender {
                 position:absolute; 
-                top: 660px; 
+                top: 750px; 
                 font-size: 10px; 
                 font-weight: bold; 
                 background-color: #d85757;
@@ -28,7 +28,7 @@
         <style>
             #timeWeatherToRender {
                 position:absolute; 
-                top: 660px; 
+                top:750px; 
                 font-size: 10px; 
                 font-weight: bold; 
                 background-color: #145e21;
@@ -99,9 +99,16 @@
     <div class="block"></div>
     <div class="tile is-ancestor">
         <div class="tile is-parent is-12">
-            <article class="tile is-child box is-8">
+            <article class="tile is-child box is-8 is-centered">
                 <p class="title has-text-centered">Gauge</p>
-                <p> Put div for gauge here</p>
+                <div class="gauge">
+                  <div role="meter" style="position: relative;" aria-valuemin="0" aria-valuemax="500" aria-valuenow="0" aria-valuetext="0">
+                    <div class="dial">
+                      <div class="station-name"></div>
+                      <div class="aqi-num"></div>
+                      <div class="arrow"></div>
+                    </div>
+                  </div>
             </article>
             <article class="tile is-child box is-4 is-centered">
               <p class="title has-text-centered is-size-5">Select Station</p>
@@ -147,6 +154,8 @@
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="static/js/Newscript.js" async defer></script>
+    <!-- Chu -->
+    <script scr="static/js/gauge.js"></script>
   
   </body>
 </html>

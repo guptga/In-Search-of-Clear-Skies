@@ -1,1 +1,2 @@
-static/js/api_keys.js
+.env
+config.js
