@@ -85,6 +85,9 @@ When managing the deliverables and creating our dashboard, we took into consider
 * Cannot host the Flask API/PostgreSQL DB live on Github without additional user interfaces
 
 
+### Link to presentation (slides):
+* https://docs.google.com/presentation/d/1pxP8dBJHFax09VCCcVRf4HO0COl5qjW0SMa2feWIzf0/edit?usp=sharing
+
 ### Team Members
 
 Benjamin Kidston, Chu Nguyen Kien, Gauri Gupta, Michelle Carvalho
