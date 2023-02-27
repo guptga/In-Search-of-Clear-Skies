@@ -14,7 +14,7 @@ html {
 }
 
 .section{
-  background-image: url('https://wallpaperaccess.com/full/1305710.jpg');
+  background-image: url('https://www.thoughtco.com/thmb/wuEcSPFCojJ-8zIUswQVb02XX6M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-685015187-597dd84a519de2001182016b.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -23,12 +23,12 @@ html {
 
 .title {
   text-align: center;
-  color: auto;
+  color: white;
 }
 
 .subtitle {
   text-align: center;
-  color: auto;
+  color: white;
 }
 
 .info {
