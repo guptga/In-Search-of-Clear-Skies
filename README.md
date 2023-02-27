@@ -88,7 +88,11 @@ When managing the deliverables and creating our dashboard, we took into consider
 ### Link to presentation (slides):
 * https://docs.google.com/presentation/d/1pxP8dBJHFax09VCCcVRf4HO0COl5qjW0SMa2feWIzf0/edit?usp=sharing
 
+
 ### Team Members
 
 Benjamin Kidston, Chu Nguyen Kien, Gauri Gupta, Michelle Carvalho
 
+
+### Demo:
+![](https://github.com/guptga/Project-3-In-Search-of-Clear-Skies/blob/b18eb9ae57ff6ca464e9537e79600629f48f9935/Images/AQI%20Screen%20Capture.gif)
