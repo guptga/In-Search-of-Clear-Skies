@@ -43,11 +43,11 @@ This group project showcases knowledge of Leaflet, JavaScript and other programm
 
 ### Project Scope:
 
-🔶 Location : This Project is based in Southern Ontario
+🔶 Location : Southern Ontario
 
 🔶 Latitude and Longitude boundaries : 42.895460, -82.513621, 46.595439, -76.031763
 
-🔶 Time Range : Live and historical (static)
+🔶 Data type : Live/real-time and historical (static)
 
 
 ### Resources:
@@ -62,13 +62,13 @@ This group project showcases knowledge of Leaflet, JavaScript and other programm
 
 Tools:
 
-🔶 Software: Visual Studio, Python Flask-Powered APIs, PostGreSQL
+🔶 Applications: Visual Studio, Python Flask-Powered APIs, PostGreSQL
 
-🔶 Language:  Python, SQL, HTML, JavaScript
+🔶 Language:  Python, SQL, HTML, JavaScript, CSS
 
-🔶 Library: Pandas, Flask, D3, Leaflet, MarkerClusters, Custom Icons, OpenLayers, Canvas, JQuery (JavaScript Library)
+🔶 Library: Pandas, SQLAlchemy, Flask, Psycopg2, D3, Leaflet, MarkerClusters, Custom Icons, OpenLayers, Canvas, JQuery (JavaScript Library)
 
-🔶 Visualization: Leaflet, HTML/CSS/Bootstrap/Javascript, Bulma (templates)
+🔶 Visualization: Leaflet, MarkerCluster Plugin, Custom Icons and Markers, HTML/CSS/Bootstrap/Javascript, Dropdown Menu, Custom Gauge
 
 
 ### Project Outcomes:
@@ -76,7 +76,7 @@ Tools:
 When managing the deliverables and creating our dashboard, we took into consideration several factors:
 * Sources of data: because we were using more than one data source, we had to ensure that the data was compatible and could coordinate seemlessly across our dashboard.
 * We paid close attention to the user interaction with our dashboard and the number of events that would be initiated by the user's selection from a drop down box.
-* We sought to providing a meangingful and interesting visual story with out visualizations.
+* We sought to provide a meangingful and interesting visual story with our visualizations.
 
 
 ### Limitations: 
