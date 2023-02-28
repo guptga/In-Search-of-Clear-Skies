@@ -4,8 +4,6 @@
 ![image](https://globalnews.ca/wp-content/uploads/2021/10/CP17269726.jpg?quality=85&strip=all)
 
 
-### Deployment link to the dashboard: 
-
 
 ### What is Air Quality Index ?
 
