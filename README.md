@@ -4,8 +4,6 @@
 ![image](https://globalnews.ca/wp-content/uploads/2021/10/CP17269726.jpg?quality=85&strip=all)
 
 
-### Deployment link to the dashboard: 
-
 
 ### What is Air Quality Index ?
 
@@ -43,11 +41,11 @@ This group project showcases knowledge of Leaflet, JavaScript and other programm
 
 ### Project Scope:
 
-🔶 Location : This Project is based in Southern Ontario
+🔶 Location : Southern Ontario
 
 🔶 Latitude and Longitude boundaries : 42.895460, -82.513621, 46.595439, -76.031763
 
-🔶 Time Range : Live and historical (static)
+🔶 Data type : Live/real-time and historical (static)
 
 
 ### Resources:
@@ -62,21 +60,21 @@ This group project showcases knowledge of Leaflet, JavaScript and other programm
 
 Tools:
 
-🔶 Software: Visual Studio, Python Flask-Powered APIs, PostGreSQL
+🔶 Applications: Visual Studio, Python Flask-Powered APIs, PostGreSQL
 
-🔶 Language:  Python, SQL, HTML, JavaScript
+🔶 Language:  Python, SQL, HTML, JavaScript, CSS
 
-🔶 Library: Pandas, Flask, D3, Leaflet, MarkerClusters, Custom Icons, OpenLayers, Canvas, JQuery (JavaScript Library)
+🔶 Library: Pandas, SQLAlchemy, Flask, Psycopg2, D3, Leaflet, MarkerClusters, Custom Icons, OpenLayers, Canvas, JQuery (JavaScript Library)
 
-🔶 Visualization: Leaflet, HTML/CSS/Bootstrap/Javascript, Bulma (templates)
+🔶 Visualization: Leaflet, MarkerCluster Plugin, Custom Icons and Markers, HTML/CSS/Bootstrap/Javascript, Dropdown Menu, Custom Gauge
 
 
 ### Project Outcomes:
 
 When managing the deliverables and creating our dashboard, we took into consideration several factors:
-* Sources of data: because we were using more than one data source, we had to ensure that the data was compatible and could coordinate seemlessly across our dashboard.
+* Sources of data: because we were using more than one data source, we had to ensure that the data was open source, compatible, complementary and could operate seamlessly across our dashboard.
 * We paid close attention to the user interaction with our dashboard and the number of events that would be initiated by the user's selection from a drop down box.
-* We sought to providing a meangingful and interesting visual story with out visualizations.
+* We sought to provide a meangingful and interesting story with our visualizations.
 
 
 ### Limitations: 
@@ -85,7 +83,14 @@ When managing the deliverables and creating our dashboard, we took into consider
 * Cannot host the Flask API/PostgreSQL DB live on Github without additional user interfaces
 
 
+### Link to presentation (slides):
+* https://docs.google.com/presentation/d/1pxP8dBJHFax09VCCcVRf4HO0COl5qjW0SMa2feWIzf0/edit?usp=sharing
+
+
 ### Team Members
 
 Benjamin Kidston, Chu Nguyen Kien, Gauri Gupta, Michelle Carvalho
 
+
+### Demo:
+![](https://github.com/guptga/Project-3-In-Search-of-Clear-Skies/blob/b18eb9ae57ff6ca464e9537e79600629f48f9935/Images/AQI%20Screen%20Capture.gif)
